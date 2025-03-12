@@ -1,5 +1,8 @@
 package lab01;
 
 public class IngressoInteira extends Ingresso{
-    //IMPLEMENTAR
+    @Override
+    public double getPreco() {
+        return this.getEvento().getPrecoIngresso(); 
+    }
 }

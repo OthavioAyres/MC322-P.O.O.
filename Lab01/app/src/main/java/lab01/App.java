@@ -6,6 +6,10 @@
 
 package lab01;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import org.w3c.dom.events.Event;
+
 /**
  * Contém a estrutura de implementação da aplicação.
  * 
@@ -31,8 +35,8 @@ public class App {
         System.out.println("Nome do usuário: " + usuario.getNome());
 
         // DEMONSTRAÇÃO PASSO 1
-
-
+        EventoShow Evento_1 = new EventoShow("MPB em Campinas", local, 200, "Djavan", "01/05/2025");
+        IngressoMeia ingressoMeia = new IngressoMeia(Evento_1);
 
         // DEMONSTRAÇÃO PASSO 2
 

@@ -17,6 +17,14 @@ public abstract class Ingresso {
     private Evento evento;
 
     /**
+     * Retorna o Evento
+     * @return o Evento
+     */
+    public Evento getEvento(){
+        return evento;
+    }
+
+    /**
      * Construtor da classe Ingresso
      * @param evento o evento associado ao Ingresso
      */
