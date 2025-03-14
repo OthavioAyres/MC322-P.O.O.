@@ -6,7 +6,7 @@
 
 package lab01;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+// import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.w3c.dom.events.Event;
 
@@ -35,8 +35,15 @@ public class App {
         System.out.println("Nome do usuário: " + usuario.getNome());
 
         // DEMONSTRAÇÃO PASSO 1
-        EventoShow Evento_1 = new EventoShow("MPB em Campinas", local, 200, "Djavan", "01/05/2025");
+        EventoShow Evento_1 = new EventoShow("MPB em Campinas", local, 100.50, 200, "Djavan", "01/05/2025");
+
+        IngressoInteira ingressoInteiro = new IngressoInteira(Evento_1);
         IngressoMeia ingressoMeia = new IngressoMeia(Evento_1);
+        IngressoVIP ingressoVip = new IngressoVIP(Evento_1);
+        
+        System.out.println("Preço do ingresso: " + ingressoInteiro.getPreco());
+        System.out.println("Preço do ingresso: " + ingressoMeia.getPreco());
+        System.out.println("Preço do ingresso: " + ingressoVip.getPreco());
 
         // DEMONSTRAÇÃO PASSO 2
 
