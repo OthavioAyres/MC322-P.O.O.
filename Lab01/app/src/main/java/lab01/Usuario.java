@@ -15,6 +15,8 @@ public class Usuario {
 
     private String nome;
     private String email;
+    private Ingresso ingresso;
+    
 
     /**
      * Construtor da classe Usuario
@@ -24,6 +26,7 @@ public class Usuario {
     public Usuario(String nome, String email){
         this.nome = nome;
         this.email = email;
+        this.ingresso = null;
     }
 
     /**
@@ -40,5 +43,19 @@ public class Usuario {
      */
     public void setNome(String nome){
         this.nome = nome;
+    }
+    /**
+     * Retorna o Ingresso do usuário
+     * @return o Ingresso do usupario
+     */
+    public Ingresso getIngresso(){
+        return ingresso;
+    }
+    /**
+     * Altera o Ingresso do usuário para `Ingresso` 
+     * @param Ingresso o novo Ingresso do usuário
+     */
+    public void setIngresso(Ingresso ingresso){
+        this.ingresso = ingresso;
     }
 }

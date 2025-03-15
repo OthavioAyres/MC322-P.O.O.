@@ -13,7 +13,6 @@ package lab01;
  * @author Caio Rhoden - 214129
  */
 public abstract class Ingresso {
-
     private Evento evento;
 
     /**
