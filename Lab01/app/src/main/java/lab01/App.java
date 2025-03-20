@@ -6,6 +6,8 @@
 
 package lab01;
 
+// import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import org.checkerframework.checker.units.qual.s;
 
 // import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -67,9 +69,18 @@ public class App {
         System.out.println(" Lista de ingresso: " + Evento_Show.getIngressosVendidos().size());
         System.out.println(" Faturamento do Evento:" + Evento_Show.calcularFaturamento());
         // DEMONSTRAÇÃO PASSO 4
-
-
+        System.out.println("DEMONSTRAÇÃO PASSO 4");
+        HistoricoEventos historicoDemo = new HistoricoEventos();
+        System.out.println(" Tamanho da lista de eventos: " + historicoDemo.buscarEventosPorTipo(Evento_Show.getClass()).size());
+        historicoDemo.adicionarEvento(Evento_Show);
+        System.out.println(" Tamanho da lista de eventos: " + historicoDemo.buscarEventosPorTipo(Evento_Show.getClass()).size());
 
         // DEMONSTRAÇÃO PASSO 5
+        System.out.println("DEMONSTRAÇÃO PASSO 5");
+        EventoShow Outro_Show = new EventoShow("MPB em Campinas", local, 50, "Roberto Carlos", "03/04/2009");
+        System.out.println("Filtrar Evento: " + Evento_Show.filtrar(Outro_Show));
+
+        historicoDemo.adicionarEvento(Outro_Show);
+        System.out.println(" Tamanho da lista eventos filtrados: " + historicoDemo.BuscarEventos(Outro_Show).size());
     }
 }

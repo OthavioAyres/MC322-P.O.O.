@@ -48,6 +48,14 @@ public abstract class Evento {
     }
 
     /**
+     * Retorna o Nome do Local do Evento
+     * @return o Nome do Local do Evento
+     */
+    public Local getLocal(){
+        return local;
+    }
+
+    /**
      * Retorna o preço do ingresso do Evento
      * @return o precoIngresso do Evento
      */
@@ -82,5 +90,9 @@ public abstract class Evento {
             faturamento += ingresso.getPreco();
         }
         return faturamento;
+    }
+
+    public double getCapacidade(){
+        return local.getCapacidade();
     }
 }

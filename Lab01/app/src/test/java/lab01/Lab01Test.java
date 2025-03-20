@@ -97,7 +97,7 @@ public class Lab01Test {
     }
 
     /**
-     * Testa o método buscarEventosPorTipo do HistoricoEventos
+     * Testa o método a do HistoricoEventos
      * Verifica se os dois eventos do tipo EventoShow foram encontrados
      * pela busca
      */
