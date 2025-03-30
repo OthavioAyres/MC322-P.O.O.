@@ -16,6 +16,15 @@ public class CarrinhoServiceIntegrationTest {
 
     @Test
     public void testAdicionarProdutoNoCarrinho() {
-        
+        Produto produto = new Produto("Produto 1", 10.0);
+        Carrinho carrinho = new Carrinho();
+        CarrinhoService carrinhoService = new CarrinhoService(carrinho);
+
+        // Adicionando o produto ao carrinho
+        carrinhoService.adicionarProdutoNoCarrinho(produto);
+
+        // Verificando se o produto foi adicionado corretamente
+        assertEquals(1, carrinho.obterQuantidadeProdutos(), "O carrinho deve conter 1 produto.");
     }
+
 }
