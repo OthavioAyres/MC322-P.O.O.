@@ -47,42 +47,51 @@ public abstract class Evento {
     }
 
     /**
-     * Retorna o Nome do Local do Evento
-     * @return o Nome do Local do Evento
+     * Retorna o objeto Local associado ao Evento.
+     * @return o objeto Local do Evento.
      */
     public Local getLocal(){
         return local;
     }
 
     /**
-     * Retorna o preço do ingresso do Evento
-     * @return o precoIngresso do Evento
+     * Retorna o preço padrão do ingresso do Evento.
+     * @return o preço do ingresso do Evento.
      */
     public double getPrecoIngresso(){
         return precoIngresso;
     }
 
     /**
-     * Altera o precoIngresso do Evento para `precoIngresso` 
-     * @param precoIngresso o novo precoIngresso do Evento
+     * Atualiza o preço padrão do ingresso do Evento.
+     * @param precoIngresso o novo preço do ingresso do Evento.
      */
     public void setPrecoIngresso(double precoIngresso){
         this.precoIngresso = precoIngresso;
     }
 
     /**
-     * Retorna o preço do ingresso do Evento
-     * @return o precoIngresso do Evento
+     * Retorna a lista de ingressos vendidos para o Evento.
+     * @return a lista de ingressos vendidos.
      */
     public List<Ingresso> getIngressosVendidos(){
         return ingressosVendidos;
     }
 
+    /**
+     * Adiciona um ingresso à lista de ingressos vendidos e associa o ingresso ao usuário.
+     * @param ingresso o ingresso a ser adicionado.
+     * @param usuario o usuário que comprou o ingresso.
+     */
     public void adicionarIngresso(Ingresso ingresso, Usuario usuario){
         usuario.setIngresso(ingresso);
         ingressosVendidos.add(ingresso);
     }
 
+    /**
+     * Calcula o faturamento total do Evento com base nos ingressos vendidos.
+     * @return o faturamento total do Evento.
+     */
     public double calcularFaturamento(){
         double faturamento = 0.0;
         for (Ingresso ingresso : ingressosVendidos) {
@@ -91,6 +100,10 @@ public abstract class Evento {
         return faturamento;
     }
 
+    /**
+     * Retorna a capacidade máxima do local onde o Evento será realizado.
+     * @return a capacidade do local do Evento.
+     */
     public double getCapacidade(){
         return local.getCapacidade();
     }
