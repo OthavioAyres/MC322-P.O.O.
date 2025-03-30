@@ -12,8 +12,7 @@ import java.util.List;
 /**
  * Contém a estrutura de implementação de um Evento.
  * 
- * @author Gabriel Leite - 216180
- * @author Caio Rhoden - 214129
+ * @Othavio Henrique de Jesus Ayres - 246666
  */
 public abstract class Evento {
     private String nome;

@@ -17,8 +17,7 @@ import org.w3c.dom.events.Event;
 /**
  * Contém a estrutura de implementação da aplicação.
  * 
- * @author Gabriel Leite - 216180
- * @author Caio Rhoden - 214129
+ * @Othavio Henrique de Jesus Ayres - 246666
  */
 public class App {
 
