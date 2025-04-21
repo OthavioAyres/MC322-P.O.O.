@@ -13,11 +13,14 @@ public class EventoJogo extends Evento {
     /**
     * Construtor da classe EventoEsporte
     * @param nome o nome do Evento
-    * @param local o local do Evento
     * @param precoIngresso o preço do Ingresso do Evento
+    * @param organizadora a organizadora do Evento
+    * @param data a data do Evento
+    * @param quantidadeParticipantes a quantidade de participantes do Evento
+    * @param times a lista com os nomes dos times que se enfrentam no Evento
     */
-    public EventoJogo(String nome, Local local, double precoIngresso, Organizadora organizadora, String data, List<String> times) {
-        super(nome, local, precoIngresso, organizadora, data);
+    public EventoJogo(String nome, double precoIngresso, Organizadora organizadora, String data, double quantidadeParticipantes, List<String> times) {
+        super(nome, precoIngresso, organizadora, data, quantidadeParticipantes);
         this.times = times;
     }
 

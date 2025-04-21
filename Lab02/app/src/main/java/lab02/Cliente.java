@@ -4,6 +4,7 @@
 package lab02;
 
 import java.util.List;
+import java.util.ArrayList;
 import lab02.exceptions.IngressoNaoEncontradoException;
 import lab02.exceptions.CancelamentoNaoPermitidoException;
 
@@ -21,6 +22,7 @@ public class Cliente {
     public Cliente(String nome, String email){
         this.nome = nome;
         this.email = email;
+        this.ingressos = new ArrayList<>();
     }
 
     /**
@@ -106,7 +108,7 @@ public class Cliente {
         }
 
         if (ingressoParaCancelar == null) {
-            throw new IngressoNaoEncontradoException("Ingresso não encontrado para o evento: " + evento.getNome());
+            throw new IngressoNaoEncontradoException("Ingresso não encontrado para o evento - " + evento.getNome());
         }
 
         // Verifica se o cancelamento é permitido (ex: ingresso gratuito)

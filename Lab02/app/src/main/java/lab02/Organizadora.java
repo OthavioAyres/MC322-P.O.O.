@@ -1,6 +1,8 @@
 package lab02;
 
 import java.util.List;
+import lab02.exceptions.CapacidadeInsuficienteException;
+import lab02.exceptions.LocalIndisponivelException;
 
 public class Organizadora {
 
@@ -21,18 +23,29 @@ public class Organizadora {
     }
 
     /**
+     * Retorna o nome da organizadora
+     * @return o nome da organizadora
+     */
+    public String getNome() {
+        return nome;
+    }
+
+    /**
      * Cria um evento do tipo Festival
      * @param nome o nome do Festival
      * @param local o local do Festival
      * @param precoBase o preço base do ingresso
-     * @param dataInicio a data de início do Festival
-     * @param dataFim a data de fim do Festival
+     * @param data a data do Festival
      * @param lineup a lista de artistas do Festival
      * @param duracao a duração do Festival em dias
      * @return um novo EventoFestival
+     * @throws CapacidadeInsuficienteException se o local não tiver capacidade suficiente
+     * @throws LocalIndisponivelException se o local não estiver disponível
      */
-    public EventoFestival criarEvento(String nome, Local local, double precoBase, String dataInicio, String dataFim, List<String> lineup, int duracao) {
-        return new EventoFestival(nome, local, precoBase, this, dataInicio, lineup, duracao);
+    public EventoFestival criarEvento(String nome, Local local, double precoBase, String data, double quantidadeParticipantes, List<String> lineup, int duracao) throws CapacidadeInsuficienteException, LocalIndisponivelException {
+        EventoFestival festival = new EventoFestival(nome, precoBase, this, data, quantidadeParticipantes, lineup, duracao);
+        local.alocarParaEvento(festival);
+        return festival;
     }
 
     /**
@@ -43,9 +56,13 @@ public class Organizadora {
      * @param data a data do Show
      * @param artista o artista do Show
      * @return um novo EventoShow
+     * @throws CapacidadeInsuficienteException se o local não tiver capacidade suficiente
+     * @throws LocalIndisponivelException se o local não estiver disponível
      */
-    public EventoShow criarEvento(String nome, Local local, double precoBase, String data, String artista) {
-        return new EventoShow(nome, local, precoBase, this, data, artista);
+    public EventoShow criarEvento(String nome, Local local, double precoBase, String data, double quantidadeParticipantes, String artista) throws CapacidadeInsuficienteException, LocalIndisponivelException {
+        EventoShow show = new EventoShow(nome, precoBase, this, data, quantidadeParticipantes, artista);
+        local.alocarParaEvento(show);
+        return show;
     }
 
     /**
@@ -56,8 +73,13 @@ public class Organizadora {
      * @param data a data do Jogo
      * @param times a lista de times que jogarão
      * @return um novo EventoJogo
+     * @throws CapacidadeInsuficienteException se o local não tiver capacidade suficiente
+     * @throws LocalIndisponivelException se o local não estiver disponível
      */
-    public EventoJogo criarEvento(String nome, Local local, double precoBase, String data, List<String> times) {
-        return new EventoJogo(nome, local, precoBase, this, data, times);
+    public EventoJogo criarEvento(String nome, Local local, double precoBase, String data, double quantidadeParticipantes, List<String> times) throws CapacidadeInsuficienteException, LocalIndisponivelException {
+        EventoJogo jogo = new EventoJogo(nome, precoBase, this, data, quantidadeParticipantes, times);
+        local.alocarParaEvento(jogo);
+        return jogo;
     }
 }
+

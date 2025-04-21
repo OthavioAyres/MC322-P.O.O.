@@ -74,7 +74,7 @@ public class Local{
         if (evento.getQuantidadeParticipantes() > capacidadeMaxima) {
             throw new CapacidadeInsuficienteException("A capacidade do local " + nome + " é insuficiente para o evento");
         }
-
+        evento.setLocal(this);
         this.eventoAlocado = evento;
     }
 

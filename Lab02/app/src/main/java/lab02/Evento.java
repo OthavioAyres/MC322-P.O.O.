@@ -20,13 +20,12 @@ public abstract class Evento {
      * @param nome o nome do Evento
      * @param local o local associado ao Evento
      */
-    public Evento(String nome, Local local, double precoIngresso, Organizadora organizadora, String data) {
+    public Evento(String nome, double precoIngresso, Organizadora organizadora, String data, double quantidadeParticipantes) {
         this.nome = nome;
-        this.local = local;
         this.precoIngresso = precoIngresso; // modificar para representar o preço base do ingresso
         this.organizadora = organizadora;
         this.data = data;
-        this.quantidadeParticipantes = local.getCapacidade();
+        this.quantidadeParticipantes = quantidadeParticipantes;
         this.quantidadeIngressosVendidos = 0;
     }
 
@@ -78,6 +77,10 @@ public abstract class Evento {
         this.precoIngresso = precoIngresso;
     }
 
+    /**
+     * Retorna a descrição do Evento
+     * @return a descrição do Evento
+     */
     public String descricao(){
         return "Evento: " + this.nome + " - Local: " + this.local;
     }
@@ -93,24 +96,21 @@ public abstract class Evento {
     /**
      * Vende um ingresso para um cliente
      * @param cliente o cliente que está comprando o ingresso
-     * @return o ingresso vendido
      * @throws IngressoEsgotadoException se não houver mais ingressos disponíveis
      * @throws EventoNaoEncontradoException se o evento não for encontrado
      */
-    public Ingresso venderIngresso(Cliente cliente) throws IngressoEsgotadoException, EventoNaoEncontradoException {
+    public void venderIngresso(Cliente cliente) throws IngressoEsgotadoException, EventoNaoEncontradoException {
         if (this == null) {
             throw new EventoNaoEncontradoException("Evento não encontrado");
         }
         
         if (this.quantidadeIngressosVendidos >= this.quantidadeParticipantes) {
-            throw new IngressoEsgotadoException("Ingressos esgotados para o evento: " + this.nome);
+            throw new IngressoEsgotadoException("Ingressos esgotados para o evento - " + this.nome);
         }
         
         Ingresso ingresso = new Ingresso(this, this.precoIngresso);
         cliente.adicionarIngresso(ingresso);
         this.quantidadeIngressosVendidos++;
-        
-        return ingresso;
     }
 
     /**
@@ -127,5 +127,20 @@ public abstract class Evento {
      */
     public double getQuantidadeIngressosVendidos() {
         return quantidadeIngressosVendidos;
+    }
+    
+    /**
+     * Altera a organizadora do Evento para `organizadora`
+     * @param organizadora a nova organizadora do Evento
+     */
+    public void setOrganizadora(Organizadora organizadora){
+        this.organizadora = organizadora;
+    }
+    /**
+     * Retorna a organizadora do Evento
+     * @return a organizadora do Evento
+     */
+    public Organizadora getOrganizadora() {
+        return organizadora;
     }
 }
