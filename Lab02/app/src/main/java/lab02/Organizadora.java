@@ -81,5 +81,46 @@ public class Organizadora {
         local.alocarParaEvento(jogo);
         return jogo;
     }
+
+    /**
+     * Cria um evento do tipo Bar
+     * @param nome o nome do evento
+     * @param local o local do evento
+     * @param precoBase o preço base do ingresso
+     * @param data a data do evento
+     * @param quantidadeParticipantes a quantidade de participantes do evento
+     * @param nomeBar o nome do bar
+     * @param inicioHappyHour o horário de início do happy hour
+     * @param duracaoHappyHour a duração do happy hour
+     * @return um novo EventoEmBar
+     * @throws CapacidadeInsuficienteException se o local não tiver capacidade suficiente
+     * @throws LocalIndisponivelException se o local não estiver disponível
+     */
+    public EventoEmBar criarEvento(String nome, Local local, double precoBase, String data, double quantidadeParticipantes,
+                                 String nomeBar, String inicioHappyHour, String duracaoHappyHour) throws CapacidadeInsuficienteException, LocalIndisponivelException {
+        EventoEmBar eventoBar = new EventoEmBar(nome, precoBase, this, data, quantidadeParticipantes, nomeBar, inicioHappyHour, duracaoHappyHour);
+        local.alocarParaEvento(eventoBar);
+        return eventoBar;
+    }
+
+    /**
+     * Cria um evento do tipo Música Ao Vivo
+     * @param nome o nome do evento
+     * @param local o local do evento
+     * @param precoBase o preço base do ingresso
+     * @param data a data do evento
+     * @param quantidadeParticipantes a quantidade de participantes do evento
+     * @param nomeArtista o nome do artista
+     * @param generoMusical o gênero musical
+     * @return um novo EventoMusicaAoVivo
+     * @throws CapacidadeInsuficienteException se o local não tiver capacidade suficiente
+     * @throws LocalIndisponivelException se o local não estiver disponível
+     */
+    public EventoMusicaAoVivo criarEventoMusicaAoVivo(String nome, Local local, double precoBase, String data, double quantidadeParticipantes,
+                                                     String nomeArtista, String generoMusical) throws CapacidadeInsuficienteException, LocalIndisponivelException {
+        EventoMusicaAoVivo eventoMusica = new EventoMusicaAoVivo(nome, precoBase, this, data, quantidadeParticipantes, nomeArtista, generoMusical);
+        local.alocarParaEvento(eventoMusica);
+        return eventoMusica;
+    }
 }
 

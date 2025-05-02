@@ -5,6 +5,7 @@
 package lab02;
 
 import java.util.List;
+import java.util.ArrayList;
 
 public class ImobiliariaDeEventos {
     
@@ -18,6 +19,7 @@ public class ImobiliariaDeEventos {
      */
     public ImobiliariaDeEventos(String nome) {
         this.nome = nome;
+        this.locais = new ArrayList<>();
     }
 
     /**
@@ -26,6 +28,14 @@ public class ImobiliariaDeEventos {
      */
     public void adicionarLocal(Local local) {
         this.locais.add(local);
+    }
+
+    /**
+     * Define a lista de locais disponíveis
+     * @param locais a lista de locais a ser definida
+     */
+    public void setLocais(List<Local> locais) {
+        this.locais = locais;
     }
 
     /**
@@ -54,6 +64,5 @@ public class ImobiliariaDeEventos {
             }
         }
         return null;
-    }
-    
+    }  
 }
