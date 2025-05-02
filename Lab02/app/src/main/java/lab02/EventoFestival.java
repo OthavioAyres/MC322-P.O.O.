@@ -5,12 +5,11 @@
 package lab02;
 
 import java.util.List;
+import lab02.caracteristica.CaracteristicaFestival;
 
 public class EventoFestival extends Evento {
-        
-    private List<String> lineup;
-    private int duracao;
-    
+    private CaracteristicaFestival caracteristicas;
+
     /**
     * Construtor da classe EventoFestival
     * @param nome o nome do Evento
@@ -21,8 +20,7 @@ public class EventoFestival extends Evento {
     */
     public EventoFestival(String nome, double precoIngresso, Organizadora organizadora, String data, double quantidadeParticipantes, List<String> lineup, int duracao) {
         super(nome, precoIngresso, organizadora, data, quantidadeParticipantes);
-        this.lineup = lineup;
-        this.duracao = duracao;
+        this.caracteristicas = new CaracteristicaFestival(lineup, duracao);
     }
 
     /**
@@ -30,7 +28,7 @@ public class EventoFestival extends Evento {
     * @return a lista com os nomes dos artistas do Festival
     */
     public List<String> getLineup() {
-        return this.lineup;
+        return caracteristicas.getLineup();
     }
     
     /**
@@ -38,16 +36,15 @@ public class EventoFestival extends Evento {
     * @return a dura o do Festival
     */
     public int getDuracao() {
-        return this.duracao;
+        return caracteristicas.getDuracao();
     }
-
 
     /**
      * Retorna uma string contendo a descri o do Festival, com seu nome, lineup, local e dura o
      * @return uma string com a descri o do Festival
      */
-    public String descricao() {
-        return "Festival: " + this.nome + " - Lineup: " + this.lineup + " - Local: " + this.local + " - Duração: " + this.duracao;
+    public String getDescricaoCaracteristicas() {
+        return caracteristicas.descricao();
     }
 
     /**

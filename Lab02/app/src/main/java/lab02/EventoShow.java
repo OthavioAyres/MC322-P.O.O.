@@ -5,9 +5,10 @@
 
 package lab02;
 
+import lab02.caracteristica.CaracteristicaShow;
+
 public class EventoShow extends Evento {
-        
-    private String artista;
+    private CaracteristicaShow caracteristicas;
     
     /**
     * Construtor da classe EventocShow
@@ -18,8 +19,7 @@ public class EventoShow extends Evento {
     */
     public EventoShow(String nome, double precoIngresso, Organizadora organizadora, String data, double quantidadeParticipantes, String artista) {
         super(nome, precoIngresso, organizadora, data, quantidadeParticipantes);
-        this.artista = artista;
-
+        this.caracteristicas = new CaracteristicaShow(artista);
     }
     
     /**
@@ -28,5 +28,13 @@ public class EventoShow extends Evento {
     */
     public double getPrecoIngresso() {
         return this.precoIngresso;
+    }
+
+    public String getArtista() {
+        return caracteristicas.getArtista();
+    }
+
+    public String getDescricaoCaracteristicas() {
+        return caracteristicas.descricao();
     }
 }

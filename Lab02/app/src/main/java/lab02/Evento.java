@@ -82,7 +82,7 @@ public abstract class Evento {
      * @return a descrição do Evento
      */
     public String descricao(){
-        return "Evento: " + this.nome + " - Local: " + this.local;
+        return "Evento: " + this.nome + " - Local: " + this.local.getNome();
     }
 
     /**

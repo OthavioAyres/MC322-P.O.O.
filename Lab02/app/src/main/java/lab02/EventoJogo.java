@@ -6,10 +6,10 @@
 package lab02;
 
 import java.util.List;
+import lab02.caracteristica.CaracteristicaJogo;
 
 public class EventoJogo extends Evento {
-        
-    private List<String> times;
+    private CaracteristicaJogo caracteristicas;
     /**
     * Construtor da classe EventoEsporte
     * @param nome o nome do Evento
@@ -21,7 +21,7 @@ public class EventoJogo extends Evento {
     */
     public EventoJogo(String nome, double precoIngresso, Organizadora organizadora, String data, double quantidadeParticipantes, List<String> times) {
         super(nome, precoIngresso, organizadora, data, quantidadeParticipantes);
-        this.times = times;
+        this.caracteristicas = new CaracteristicaJogo(times);
     }
 
     /**
@@ -29,24 +29,11 @@ public class EventoJogo extends Evento {
      * @return a lista com os nomes dos times do Evento
      */
     public List<String> getTimes() {
-        return times;
+        return caracteristicas.getTimes();
     }
 
-    /**
-     * Retorna uma string contendo a descri o do Evento, com seu nome, times, local e data
-     * @return uma string com a descri o do Evento
-     */
-    @Override
-    public String descricao() {
-        return "Esporte: " + this.nome + " - Times: " + this.times + " - Local: " + this.local;
-    }
-    
-    /**
-    * Retorna o preço do Ingresso do Evento
-    * @return o preço do Ingresso do Evento
-    */
-    @Override
-    public double getPrecoIngresso() {
-        return this.precoIngresso;
+
+    public String getDescricaoCaracteristicas() {
+        return caracteristicas.descricao();
     }
 }
