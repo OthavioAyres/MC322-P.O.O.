@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="lab03.LoginController"
+      spacing="10" 
+      style="-fx-padding: 20; -fx-background-color: white;">
+    
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <HBox alignment="CENTER_LEFT" spacing="10">
+        <Label text="Bem-vindo ao Dashboard" style="-fx-font-size: 24px; -fx-font-weight: bold;"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button text="Sair" onAction="#onLogout" style="-fx-background-color: #ff4444; -fx-text-fill: white;"/>
+    </HBox>
+
+    <Separator/>
+    
+    <VBox spacing="20" alignment="CENTER" VBox.vgrow="ALWAYS">
+        <Label text="Menu Principal" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+        
+        <Button text="Meus Ingressos" 
+                onAction="#onVerIngressos" 
+                style="-fx-background-color: #4488ff; -fx-text-fill: white; -fx-font-size: 16px;"
+                maxWidth="250" minHeight="50"/>
+                
+        <Button text="Marketplace de Ingressos" 
+                onAction="#onAbrirMarketplace" 
+                style="-fx-background-color: #ff8844; -fx-text-fill: white; -fx-font-size: 16px;"
+                maxWidth="250" minHeight="50"/>
+                
+        <Button text="Comprar Ingressos" 
+                onAction="#onComprarIngressos" 
+                style="-fx-background-color: #44cc44; -fx-text-fill: white; -fx-font-size: 16px;"
+                maxWidth="250" minHeight="50"/>
+    </VBox>
+    
+</VBox> 
