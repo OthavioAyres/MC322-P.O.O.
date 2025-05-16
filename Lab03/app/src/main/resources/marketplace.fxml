@@ -23,6 +23,7 @@
             </HBox>
             <Separator/>
             <Label text="Ingressos Disponíveis para Compra" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+            <Label text="Dica: Clique duas vezes em um ingresso para ver detalhes do evento" style="-fx-font-style: italic; -fx-text-fill: #666666;"/>
         </VBox>
     </top>
     
@@ -35,11 +36,16 @@
         <VBox spacing="10">
             <Separator/>
             <HBox spacing="10" alignment="CENTER_RIGHT">
-                <Button text="Comprar Ingresso Selecionado" 
+                <Label fx:id="labelTotalOfertas" style="-fx-font-size: 14px;"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Button text="Ver Detalhes" 
+                        onAction="#exibirDetalhesEvento" 
+                        style="-fx-background-color: #ffa500; -fx-text-fill: white;"
+                        fx:id="btnDetalhes"/>
+                <Button text="Comprar Ingresso" 
                         onAction="#onComprarIngresso" 
                         style="-fx-background-color: #44cc44; -fx-text-fill: white;"
                         fx:id="btnComprar"/>
-                <Label fx:id="labelTotalOfertas" style="-fx-font-size: 14px;"/>
             </HBox>
         </VBox>
     </bottom>

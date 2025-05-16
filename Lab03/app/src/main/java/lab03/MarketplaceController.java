@@ -35,6 +35,9 @@ public class MarketplaceController {
     @FXML
     private Button btnComprar;
     
+    @FXML
+    private Button btnDetalhes;
+    
     private Cliente cliente;
     private Marketplace marketplace;
     private ObservableList<OfertaIngresso> ofertas;
@@ -59,8 +62,23 @@ public class MarketplaceController {
         
         // Configurar o botão de compra para ser habilitado apenas quando um item estiver selecionado
         btnComprar.setDisable(true);
+        if (btnDetalhes != null) {
+            btnDetalhes.setDisable(true);
+        }
+        
         listViewOfertas.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
-            btnComprar.setDisable(newSelection == null);
+            boolean itemSelecionado = newSelection != null;
+            btnComprar.setDisable(!itemSelecionado);
+            if (btnDetalhes != null) {
+                btnDetalhes.setDisable(!itemSelecionado);
+            }
+        });
+        
+        // Configurar duplo clique para mostrar detalhes
+        listViewOfertas.setOnMouseClicked(event -> {
+            if (event.getClickCount() == 2) {
+                exibirDetalhesEvento();
+            }
         });
     }
     
@@ -109,6 +127,32 @@ public class MarketplaceController {
                 mostrarAlerta("Erro", "Saldo insuficiente: " + e.getMessage(), Alert.AlertType.ERROR);
             } catch (OfertaNaoEncontradaException e) {
                 mostrarAlerta("Erro", "Oferta não disponível: " + e.getMessage(), Alert.AlertType.ERROR);
+            }
+        }
+    }
+    
+    @FXML
+    private void exibirDetalhesEvento() {
+        OfertaIngresso ofertaSelecionada = listViewOfertas.getSelectionModel().getSelectedItem();
+        if (ofertaSelecionada != null) {
+            try {
+                // Carregar a tela de detalhes do evento
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/event_details.fxml"));
+                Parent detalhesEvent = loader.load();
+                
+                // Obter o controlador e configurá-lo com o evento selecionado
+                EventoDetalhesController controller = loader.getController();
+                controller.setEvento(ofertaSelecionada.getIngresso().getEvento());
+                controller.setTelaAnterior("marketplace");
+                
+                // Exibir a tela de detalhes
+                Scene detalhesScene = new Scene(detalhesEvent, 600, 400);
+                Stage stage = (Stage) listViewOfertas.getScene().getWindow();
+                stage.setScene(detalhesScene);
+                stage.setTitle("Detalhes do Evento - " + ofertaSelecionada.getIngresso().getEvento().getNome());
+                
+            } catch (IOException e) {
+                mostrarAlerta("Erro", "Não foi possível exibir os detalhes: " + e.getMessage(), Alert.AlertType.ERROR);
             }
         }
     }

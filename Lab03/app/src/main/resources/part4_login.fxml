@@ -9,7 +9,5 @@
       fx:controller="lab03.LoginController"
       spacing="10" alignment="CENTER">
     <Label text="Faça login para continuar"/>
-    <Button text="Login com Google" onAction="#onLogin"/>
-    <Button text="Login com Facebook" onAction="#onLogin"/>
-    <Button text="Login com Apple" onAction="#onLogin"/>
+    <Button text="Login Othavio Ayres" onAction="#onLogin"/>
 </VBox>

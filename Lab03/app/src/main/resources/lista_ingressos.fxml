@@ -23,6 +23,7 @@
             </HBox>
             <Separator/>
             <Label text="Meus Ingressos" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+            <Label text="Dica: Clique duas vezes em um ingresso para ver detalhes do evento" style="-fx-font-style: italic; -fx-text-fill: #666666;"/>
         </VBox>
     </top>
     
@@ -32,9 +33,16 @@
     </center>
     
     <bottom>
-        <HBox spacing="10" alignment="CENTER_RIGHT" style="-fx-padding: 10 0 0 0;">
-            <Label fx:id="labelTotalIngressos" style="-fx-font-size: 14px;"/>
-        </HBox>
+        <VBox spacing="10">
+            <Separator/>
+            <HBox spacing="10" alignment="CENTER_RIGHT">
+                <Label fx:id="labelTotalIngressos" style="-fx-font-size: 14px;"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Button text="Ver Detalhes" 
+                        onAction="#exibirDetalhesEvento" 
+                        style="-fx-background-color: #ffa500; -fx-text-fill: white;"/>
+            </HBox>
+        </VBox>
     </bottom>
     
 </BorderPane> 

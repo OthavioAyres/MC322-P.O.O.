@@ -65,6 +65,13 @@ public class ListaIngressosController {
                 }
             }
         });
+        
+        // Configurar duplo clique para mostrar detalhes
+        listViewIngressos.setOnMouseClicked(event -> {
+            if (event.getClickCount() == 2) {
+                exibirDetalhesEvento();
+            }
+        });
     }
     
     @FXML
@@ -75,5 +82,39 @@ public class ListaIngressosController {
         Stage stage = (Stage)((javafx.scene.Node)event.getSource()).getScene().getWindow();
         stage.setScene(dashboardScene);
         stage.setTitle("Dashboard");
+    }
+    
+    @FXML
+    private void exibirDetalhesEvento() {
+        Ingresso ingressoSelecionado = listViewIngressos.getSelectionModel().getSelectedItem();
+        if (ingressoSelecionado != null) {
+            try {
+                // Carregar a tela de detalhes do evento
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/event_details.fxml"));
+                Parent detalhesEvent = loader.load();
+                
+                // Obter o controlador e configurá-lo com o evento selecionado
+                EventoDetalhesController controller = loader.getController();
+                controller.setEvento(ingressoSelecionado.getEvento());
+                controller.setTelaAnterior("ingressos");
+                
+                // Exibir a tela de detalhes
+                Scene detalhesScene = new Scene(detalhesEvent, 600, 400);
+                Stage stage = (Stage) listViewIngressos.getScene().getWindow();
+                stage.setScene(detalhesScene);
+                stage.setTitle("Detalhes do Evento - " + ingressoSelecionado.getEvento().getNome());
+                
+            } catch (IOException e) {
+                exibirAlerta("Erro", "Não foi possível exibir os detalhes: " + e.getMessage());
+            }
+        }
+    }
+    
+    private void exibirAlerta(String titulo, String mensagem) {
+        javafx.scene.control.Alert alert = new javafx.scene.control.Alert(javafx.scene.control.Alert.AlertType.ERROR);
+        alert.setTitle(titulo);
+        alert.setHeaderText(null);
+        alert.setContentText(mensagem);
+        alert.showAndWait();
     }
 } 
