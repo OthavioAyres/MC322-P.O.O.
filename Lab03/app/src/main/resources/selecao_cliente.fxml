@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Font?>
+
+<VBox xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="lab03.SelecaoClienteController"
+      alignment="CENTER" spacing="20" 
+      styleClass="container" 
+      style="-fx-background-color: #f0f0f0;"
+      prefWidth="600" prefHeight="400">
+    
+    <padding>
+        <Insets top="50" right="50" bottom="50" left="50"/>
+    </padding>
+    
+    <Label text="Seleção de Cliente" style="-fx-font-size: 28px; -fx-font-weight: bold;" />
+    
+    <Label text="Escolha um cliente para acessar o sistema" style="-fx-font-size: 16px;" />
+    
+    <Separator prefWidth="400" />
+    
+    <VBox spacing="15" alignment="CENTER">
+        <Button text="Cliente 1 - João da Silva" 
+                onAction="#logarCliente1" 
+                prefWidth="250" 
+                prefHeight="50" 
+                style="-fx-font-size: 16px; -fx-background-color: #4488ff; -fx-text-fill: white;" />
+        
+        <Button text="Cliente 2 - Maria Souza" 
+                onAction="#logarCliente2" 
+                prefWidth="250" 
+                prefHeight="50" 
+                style="-fx-font-size: 16px; -fx-background-color: #44cc44; -fx-text-fill: white;" />
+    </VBox>
+    
+    <Separator prefWidth="400" />
+    
+    <Label text="Sistema de Gerenciamento de Eventos e Ingressos" style="-fx-font-style: italic;" />
+    
+</VBox> 

@@ -6,7 +6,7 @@
 
 <VBox xmlns="http://javafx.com/javafx/17"
       xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="lab03.LoginController"
+      fx:controller="lab03.DashboardController"
       spacing="10" 
       style="-fx-padding: 20; -fx-background-color: white;">
     
@@ -15,9 +15,10 @@
     </padding>
 
     <HBox alignment="CENTER_LEFT" spacing="10">
-        <Label text="Bem-vindo ao Dashboard" style="-fx-font-size: 24px; -fx-font-weight: bold;"/>
+        <Label fx:id="labelBemVindo" text="Bem-vindo(a) ao Dashboard" style="-fx-font-size: 24px; -fx-font-weight: bold;"/>
         <Region HBox.hgrow="ALWAYS"/>
-        <Button text="Sair" onAction="#onLogout" style="-fx-background-color: #ff4444; -fx-text-fill: white;"/>
+        <Label fx:id="labelSaldo" style="-fx-font-size: 16px; -fx-background-color: #e8f4ff; -fx-padding: 5 10; -fx-background-radius: 5;"/>
+        <Button text="Trocar Usuário" onAction="#onLogout" style="-fx-background-color: #ff4444; -fx-text-fill: white;"/>
     </HBox>
 
     <Separator/>

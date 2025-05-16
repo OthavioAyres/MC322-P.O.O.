@@ -19,12 +19,15 @@ public class App extends Application {
     // - part1_text
     // - part2_button_with_action
     // - part3_updating_list
+    // - part4_login (tela de login original)
+    // - selecao_cliente (nova tela de seleção de cliente)
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/part4_login.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/selecao_cliente.fxml"));
         Parent root = loader.load();
-        Scene scene = new Scene(root, 800, 600);
+        Scene scene = new Scene(root, 600, 400);
         stage.setScene(scene);
+        stage.setTitle("Seleção de Cliente");
         stage.show();
     }
 
