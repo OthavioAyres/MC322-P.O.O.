@@ -75,8 +75,7 @@ public class EventoDetalhesController {
         }
         
         labelCapacidade.setText(String.format("%.0f pessoas", evento.getQuantidadeParticipantes()));
-        labelIngressosVendidos.setText(String.format("%.0f", evento.getQuantidadeIngressosVendidos()));
-        
+
         // Verificar o tipo específico de evento para mostrar detalhes adicionais
         String detalhesEspecificos = "";
         

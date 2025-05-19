@@ -37,9 +37,6 @@
         <Label text="Capacidade:" GridPane.columnIndex="0" GridPane.rowIndex="4" style="-fx-font-weight: bold;" />
         <Label fx:id="labelCapacidade" GridPane.columnIndex="1" GridPane.rowIndex="4" />
         
-        <Label text="Ingressos vendidos:" GridPane.columnIndex="0" GridPane.rowIndex="5" style="-fx-font-weight: bold;" />
-        <Label fx:id="labelIngressosVendidos" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-        
         <Label text="Detalhes:" GridPane.columnIndex="0" GridPane.rowIndex="6" style="-fx-font-weight: bold;" />
         <Label fx:id="labelDetalhes" GridPane.columnIndex="1" GridPane.rowIndex="6" wrapText="true" />
     </GridPane>
