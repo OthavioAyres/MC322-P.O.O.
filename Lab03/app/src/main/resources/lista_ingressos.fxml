@@ -38,9 +38,14 @@
             <HBox spacing="10" alignment="CENTER_RIGHT">
                 <Label fx:id="labelTotalIngressos" style="-fx-font-size: 14px;"/>
                 <Region HBox.hgrow="ALWAYS"/>
+                <Button text="Vender Ingresso" 
+                        onAction="#onVenderIngresso" 
+                        style="-fx-background-color: #44cc44; -fx-text-fill: white;"
+                        fx:id="btnVender"/>
                 <Button text="Ver Detalhes" 
                         onAction="#exibirDetalhesEvento" 
-                        style="-fx-background-color: #ffa500; -fx-text-fill: white;"/>
+                        style="-fx-background-color: #ffa500; -fx-text-fill: white;"
+                        fx:id="btnDetalhes"/>
             </HBox>
         </VBox>
     </bottom>
