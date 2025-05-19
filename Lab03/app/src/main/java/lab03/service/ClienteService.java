@@ -78,19 +78,12 @@ public class ClienteService {
         // Criar organizadora fictícia para os eventos
         Organizadora organizadora = new Organizadora("Eventos Brasil", 123456789, "Av. Paulista, 1000");
         
-        // Nome aleatório para diferenciar eventos entre clientes
-        String identificadorCliente = cliente.getNome().split(" ")[0]; // Pega o primeiro nome
         
         // Criar eventos fictícios específicos para este cliente
-        EventoShow evento1 = new EventoShow("Show de Rock - " + identificadorCliente, 150.00, organizadora, "2024-04-20", 5000, "Banda Nacional");
-        EventoShow evento2 = new EventoShow("Festival de Cinema - " + identificadorCliente, 80.00, organizadora, "2024-05-15", 2000, "Festival Nacional");
-        EventoShow evento3 = new EventoShow("Peça de Teatro - " + identificadorCliente, 120.00, organizadora, "2024-06-05", 300, "Grupo Teatral");
-        EventoShow evento4 = new EventoShow("Exposição de Arte - " + identificadorCliente, 60.00, organizadora, "2024-04-30", 1000, "Expositor Nacional");
-        
+        EventoShow evento1 = new EventoShow("Show de Rock" , 150.00, organizadora, "2024-04-20", 5000, "Banda Nacional");
+        EventoShow evento2 = new EventoShow("Festival de Cinema" , 80.00, organizadora, "2024-05-15", 2000, "Festival Nacional");
+
         // Adicionar ingressos ao cliente
         cliente.adicionarIngresso(new Ingresso(evento1, 150.00));
-        cliente.adicionarIngresso(new Ingresso(evento2, 80.00));
-        cliente.adicionarIngresso(new Ingresso(evento3, 120.00));
-        cliente.adicionarIngresso(new Ingresso(evento4, 60.00));
     }
 } 
