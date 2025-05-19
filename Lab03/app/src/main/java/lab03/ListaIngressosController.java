@@ -142,7 +142,7 @@ public class ListaIngressosController {
                         
                         // Mostrar mensagem de sucesso
                         Alert sucesso = new Alert(AlertType.INFORMATION);
-                        sucesso.setTitle("Venda Realizada");
+                        sucesso.setTitle("Ingresso Colocado à Venda");
                         sucesso.setHeaderText("Ingresso colocado à venda com sucesso!");
                         sucesso.setContentText(String.format(
                             "Seu ingresso para '%s' foi colocado à venda por R$ %.2f.\n" +

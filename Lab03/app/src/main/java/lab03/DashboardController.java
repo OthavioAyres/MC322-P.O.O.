@@ -67,13 +67,11 @@ public class DashboardController {
     }
     
     @FXML
-    private void onComprarIngressos(ActionEvent event) {
-        // Por enquanto, apenas mostraremos uma mensagem de alerta
-        javafx.scene.control.Alert alert = new javafx.scene.control.Alert(
-            javafx.scene.control.Alert.AlertType.INFORMATION);
-        alert.setTitle("Comprar Ingressos");
-        alert.setHeaderText("Função não implementada");
-        alert.setContentText("A funcionalidade de compra de ingressos ainda não foi implementada.");
-        alert.showAndWait();
+    private void onComprarIngressos(ActionEvent event) throws IOException {
+        Parent eventosDisponiveis = FXMLLoader.load(getClass().getResource("/eventos_disponiveis.fxml"));
+        Scene eventosDisponiveisScene = new Scene(eventosDisponiveis, 800, 600);
+        Stage stage = getStage(event);
+        stage.setScene(eventosDisponiveisScene);
+        stage.setTitle("Eventos Disponíveis");
     }
 } 
