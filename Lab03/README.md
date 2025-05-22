@@ -117,7 +117,7 @@ E por fim  solicitei ajuda da IA para redigir a descrição dos titulos anterior
 onde fica a logica do calculo da comissão ? e transferência de ingresso ?  e a atualização do saldo ?
 Escolhi deixar o saldo como um atributo do cliente pois isso facilita a logica geral, uma vez que faz sentido pensar que cada cliente possui um saldo individual que sempre será associado a ele (como o email do cliente por exemplo que pode até mudar mas nao faz sentido sem o cliente). Dito isto, também para simplificar o entendimento de todo o serviço: o calculo da comissão, juntamente com a atualização do saldo e transfêrencia do ingresso ocorrem por meio da classe marketplace, que é responsavel por chamar estas alterações uma vêz que um ingresso seja vendido, além de ser a mesma classe quem "recebera" a comissão.
 
-O saldo dos clientes é atualizado na compra de um ingresso. Porém, como não foi pedido diretamente nos exemplos de demonstração eu não estou atualizando o saldo do vendedor assim que o ingresso é comprado (Mostro uma noticação de que o saldo devera ser atualizado em até 48h).
+O saldo dos clientes é atualizado na compra de um ingresso. (Mostro uma noticação de que o saldo devera ser atualizado em até 48h).
 
 Referências utilizadas :
 Estruturas MVC em java.

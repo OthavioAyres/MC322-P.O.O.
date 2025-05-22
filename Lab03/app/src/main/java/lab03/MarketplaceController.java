@@ -109,6 +109,7 @@ public class MarketplaceController {
                 // Processar a compra
                 cliente.debitarSaldo(ofertaSelecionada.getPrecoPedido());
                 marketplace.processarCompra(cliente, ofertaSelecionada);
+                ofertaSelecionada.getVendedor().adicionarSaldo(ofertaSelecionada.getPrecoPedido() * (1 - marketplace.getComissaoPorcentagem() / 100));
                 
                 // Atualizar a lista de ofertas
                 ofertas.remove(ofertaSelecionada);
