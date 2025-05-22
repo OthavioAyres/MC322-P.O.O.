@@ -12,14 +12,9 @@ import java.io.IOException;
  * JavaFX App
  */
 public class App extends Application {
-
-
-    //CHANGE THE SCENE HERE TO START THE DESIRED PART OF THE CLASS
-    // The possible scenes are:
     // - part1_text
     // - part2_button_with_action
     // - part3_updating_list
-    // - part4_login (tela de login original)
     // - selecao_cliente (nova tela de seleção de cliente)
     @Override
     public void start(Stage stage) throws IOException {
